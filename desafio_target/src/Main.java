@@ -67,6 +67,23 @@ public class Main {
         System.out.printf("Percentual de Outros: %.2f%%\n", (outros / total) * 100);
     }
 
+    public static String ex05(String str) {
+        char[] letras = str.toCharArray();
+        int inicioStr = 0;
+        int fimStr = letras.length - 1;
+
+        while (inicioStr < fimStr) {
+            char temp = letras[inicioStr];
+            letras[inicioStr] = letras[fimStr];
+            letras[fimStr] = temp;
+
+            inicioStr++;
+            fimStr--;
+        }
+
+        return new String(letras);
+    }
+
     public static void main(String[] args) {
 
         // Não foi disponibilizado o arquivo xml ou json, então criei esse vetor para simular os dados
@@ -84,6 +101,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         int opcao, n;
+        String str;
 
         do {
             System.out.println("===== MENU =====");
@@ -130,6 +148,16 @@ public class Main {
                     break;
                 case 5:
                     System.out.println("Exercício 05:");
+
+                    scanner.nextLine(); // limpar o buffer
+
+                    System.out.print("Digite uma string para inverter ela: ");
+                    str = scanner.nextLine();
+
+                    String novaStr = ex05(str);
+
+                    System.out.println(str + " -> " + novaStr);
+
                     break;
                 case 6:
                     System.out.println("Saindo...");
