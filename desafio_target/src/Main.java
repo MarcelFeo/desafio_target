@@ -24,7 +24,46 @@ public class Main {
         }
     }
 
+    public static void ex03(double[] dados) {
+        double menor = Double.MAX_VALUE;
+        double maior = Double.MIN_VALUE;
+        double soma = 0.0;
+        int dias = 0;
+
+        for (double dado : dados) {
+            if (dado > 0) {
+                if (dado < menor) {
+                    menor = dado;
+                }
+                if (dado > maior) {
+                    maior = dado;
+                }
+                soma += dado;
+                dias++;
+            }
+        }
+
+        double mediaMensal = soma / dias;
+        int diasFaturamentoAcima = 0;
+
+        for (double dado : dados) {
+            if (dado > mediaMensal) {
+                diasFaturamentoAcima++;
+            }
+        }
+
+        System.out.println("Menor valor de faturamento: " + menor);
+        System.out.println("Maior valor de faturamento: " + maior);
+        System.out.println("Número de dias com faturamento acima da média: " + diasFaturamentoAcima);
+    }
+
     public static void main(String[] args) {
+
+        // Não foi disponibilizado o arquivo xml ou json, então criei esse vetor para simular os dados
+        double[] dados = {
+                200.0, 300.0, 250.0, 400.0, 100.0, 0.0, 350.0, 600.0, 700.0, 500.0, 0.0, 650.0, 450.0, 300.0,
+                200.0, 100.0, 50.0, 0.0, 150.0, 300.0, 400.0, 500.0, 600.0, 800.0, 0.0, 0.0, 450.0, 550.0, 500.0, 400.0
+        };
 
         Scanner scanner = new Scanner(System.in);
         int opcao, n;
@@ -46,7 +85,7 @@ public class Main {
                     ex01();
                     break;
                 case 2:
-                    System.out.println("Exercício 2: ");
+                    System.out.println("Exercício 02: ");
 
                     System.out.println("Digite um número: ");
                     n = scanner.nextInt();
@@ -61,13 +100,13 @@ public class Main {
 
                     break;
                 case 3:
-                    System.out.println("Exercício 3: ");
+                    System.out.println("Exercício 03: ");
 
-                    
+                    ex03(dados);
 
                     break;
                 case 4:
-                    System.out.println("Você escolheu a Opção 4");
+                    System.out.println("Exercício 04: ");
                     break;
                 case 5:
                     System.out.println("Saindo do programa...");
