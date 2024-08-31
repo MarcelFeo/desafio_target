@@ -14,11 +14,20 @@ public class Main {
         System.out.println("Resultado da soma: " + soma);
     }
 
+    public static boolean ex02(int a, int b, int n) {
+        if (a == n || b == n) {
+            return true;
+        } else if (b > n) {
+            return false;
+        } else {
+            return ex02(b, a + b, n);
+        }
+    }
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        int opcao;
+        int opcao, n;
 
         do {
             System.out.println("===== MENU =====");
@@ -37,10 +46,25 @@ public class Main {
                     ex01();
                     break;
                 case 2:
-                    System.out.println("Você escolheu a Opção 2");
+                    System.out.println("Exercício 2: ");
+
+                    System.out.println("Digite um número: ");
+                    n = scanner.nextInt();
+
+                    boolean resultado = ex02(0, 1, n);
+
+                    if (resultado) {
+                        System.out.println(n + " pertence à sequência de fibonacci!");
+                    } else {
+                        System.out.println(n + " não pertence à sequência de fibonacci!");
+                    }
+
                     break;
                 case 3:
-                    System.out.println("Você escolheu a Opção 3");
+                    System.out.println("Exercício 3: ");
+
+                    
+
                     break;
                 case 4:
                     System.out.println("Você escolheu a Opção 4");
