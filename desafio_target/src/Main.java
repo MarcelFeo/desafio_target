@@ -57,6 +57,16 @@ public class Main {
         System.out.println("Número de dias com faturamento acima da média: " + diasFaturamentoAcima);
     }
 
+    public static void ex04(double sp, double rj, double mg, double es, double outros) {
+        double total = sp + rj + mg + es + outros;
+
+        System.out.printf("Percentual de SP: %.2f%%\n", (sp / total) * 100);
+        System.out.printf("Percentual de RJ: %.2f%%\n", (rj / total) * 100);
+        System.out.printf("Percentual de MG: %.2f%%\n", (mg / total) * 100);
+        System.out.printf("Percentual de ES: %.2f%%\n", (es / total) * 100);
+        System.out.printf("Percentual de Outros: %.2f%%\n", (outros / total) * 100);
+    }
+
     public static void main(String[] args) {
 
         // Não foi disponibilizado o arquivo xml ou json, então criei esse vetor para simular os dados
@@ -64,6 +74,13 @@ public class Main {
                 200.0, 300.0, 250.0, 400.0, 100.0, 0.0, 350.0, 600.0, 700.0, 500.0, 0.0, 650.0, 450.0, 300.0,
                 200.0, 100.0, 50.0, 0.0, 150.0, 300.0, 400.0, 500.0, 600.0, 800.0, 0.0, 0.0, 450.0, 550.0, 500.0, 400.0
         };
+
+        // Dados do exercício 04
+        double sp = 67836.43;
+        double rj = 36678.66;
+        double mg = 29229.88;
+        double es = 27165.48;
+        double outros = 19849.53;
 
         Scanner scanner = new Scanner(System.in);
         int opcao, n;
@@ -81,11 +98,11 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Exercício 01: ");
+                    System.out.println("Exercício 01:");
                     ex01();
                     break;
                 case 2:
-                    System.out.println("Exercício 02: ");
+                    System.out.println("Exercício 02:");
 
                     System.out.println("Digite um número: ");
                     n = scanner.nextInt();
@@ -100,16 +117,19 @@ public class Main {
 
                     break;
                 case 3:
-                    System.out.println("Exercício 03: ");
+                    System.out.println("Exercício 03:");
 
                     ex03(dados);
 
                     break;
                 case 4:
-                    System.out.println("Exercício 04: ");
+                    System.out.println("Exercício 04:");
+
+                    ex04(sp, rj, mg, es, outros);
+
                     break;
                 case 5:
-                    System.out.println("Saindo do programa...");
+                    System.out.println("Exercício 05:");
                     break;
                 case 6:
                     System.out.println("Saindo...");
